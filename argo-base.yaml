@@ -9,12 +9,11 @@ spec:
   source:
     repoURL: https://github.com/rishikanthc/kdev.git
     targetRevision: HEAD
-    directory:
-      recurse: true
-    path: traefik
+    path: argo-apps
 
   destination:
     server: https://kubernetes.default.svc
+    namespace: argocd
 
   syncPolicy:
     automated:
