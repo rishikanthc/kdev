@@ -4,7 +4,6 @@ metadata:
   name: acme-issuer
   namespace: cluster-tools
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
     operator.1password.io/item-path: "vaults/kube/items/cloudflare"
     operator.1password.io/item-name: "cloudflare-api"
 
