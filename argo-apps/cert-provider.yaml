@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/rishikanthc/kdev.git
     targetRevision: HEAD
-    path: cert-provider
+    path: cert-manager
 
   destination:
     server: https://kubernetes.default.svc
