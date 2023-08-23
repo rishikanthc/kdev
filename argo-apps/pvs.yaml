@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/rishikanthc/bazook.git
+    repoURL: https://github.com/rishikanthc/kdev.git
     targetRevision: HEAD
     path: volumes
   destination:
