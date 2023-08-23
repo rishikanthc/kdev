@@ -12,13 +12,11 @@ spec:
   source:
     repoURL: https://github.com/rishikanthc/kdev.git
     targetRevision: HEAD
-    path: cert-manager
-    plugin:
-      name: argocd-vault-plugin
+    path: cert-provider
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: cluster-tools
 
   syncPolicy:
     syncOptions:
