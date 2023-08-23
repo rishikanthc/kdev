@@ -21,6 +21,6 @@ spec:
           port: 80
           scheme: h2c
   tls:
-  - hosts:
-      - acd.rkth.io
-    secretName: argo-cert
+    - hosts:
+        - acd.rkth.io
+      secretName: argo-cert
