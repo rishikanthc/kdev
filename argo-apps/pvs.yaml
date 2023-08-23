@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: volume-configs
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rishikanthc/bazook.git
+    targetRevision: HEAD
+    path: volumes
+  destination:
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
