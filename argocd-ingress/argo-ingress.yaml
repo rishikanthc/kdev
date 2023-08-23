@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: argocd-ingress-route
+  name: argocd-server
   namespace: argocd
 spec:
   entryPoints:
@@ -21,6 +21,4 @@ spec:
           port: 80
           scheme: h2c
   tls:
-    - hosts:
-        - acd.rkth.io
-      secretName: argo-cert
+    certResolver: default
