@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-crimson
+
+spec:
+  storageClassName: nfs
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 1Gi
+
+  nfs:
+    path: /mnt/blockstorage/skadoosh
+    server: 207.246.100.141
