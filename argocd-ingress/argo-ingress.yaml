@@ -22,3 +22,5 @@ spec:
           scheme: h2c
   tls:
     secretName: acd-tls-cert
+    domains:
+      - main: acd.rkth.io
