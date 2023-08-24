@@ -24,3 +24,4 @@ spec:
     secretName: acd-tls-cert
     domains:
       - main: acd.rkth.io
+    certResolver: letsencrypt
