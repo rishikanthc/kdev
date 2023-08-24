@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage-dep
+  namespace: kuzka
+  labels:
+    app: homepage
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: homepage
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      volumes:
+        - name: config-volume
+          persistentVolumeClaim:
+            claimName: skadoosh-pvc
+      containers:
+      - name: homepage
+        image: ghcr.io/benphelps/homepage:latest
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+          - name: config-volume
+            mountPath: "/app/config"
