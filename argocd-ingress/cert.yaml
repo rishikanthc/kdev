@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: acd-tls-cert
+  name: argocd-server-tls
   namespace: argocd
 
 spec:
