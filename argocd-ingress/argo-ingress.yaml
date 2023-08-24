@@ -21,3 +21,12 @@ spec:
         - name: argocd-server
           port: 80
           scheme: h2c
+  tls:
+    secretName: argocd-server-tls
+    options:
+      name: argotls
+      namespace: argocd
+    domains:
+      - main: acd.rkth.io
+        sans:
+          - '*.acd.rkth.io'
