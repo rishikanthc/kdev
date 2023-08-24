@@ -21,7 +21,4 @@ spec:
           port: 80
           scheme: h2c
   tls:
-    secretName: argo-cert
-    certResolver: default
-    domains:
-    - main: acd.rkth.io
+    secretName: acd-tls-cert
