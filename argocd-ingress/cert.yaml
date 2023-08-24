@@ -10,4 +10,4 @@ spec:
     name: acme-issuer
     kind: ClusterIssuer
   dnsNames:
-  - 'ac.rkth.io'
+  - 'aroma.rkth.io'

@@ -10,13 +10,13 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: Host(`ac.rkth.io`)
+      match: Host(`aroma.rkth.io`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`ac.rkth.io`) && Headers(`Content-Type`, `application/grpc`)
+      match: Host(`aroma.rkth.io`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server
