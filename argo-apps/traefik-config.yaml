@@ -3,8 +3,7 @@ kind: Application
 metadata:
   name: traefik-config
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
+
 spec:
   project: default
 

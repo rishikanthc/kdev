@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: argo-ingress
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
 
 spec:
   project: default
@@ -19,9 +17,6 @@ spec:
     namespace: argocd
 
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-
     automated:
       prune: true
       selfHeal: true
