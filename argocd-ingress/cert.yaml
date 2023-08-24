@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 
 spec:
-  secretName: acd-tls-cert
+  secretName: argocd-server-tls
   issuerRef:
     name: acme-issuer
     kind: ClusterIssuer
