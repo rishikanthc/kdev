@@ -23,4 +23,3 @@ spec:
           scheme: h2c
   tls:
     secretName: argocd-server-tls
-    certResolver: letsencrypt
