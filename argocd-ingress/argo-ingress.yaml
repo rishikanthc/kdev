@@ -24,7 +24,4 @@ spec:
           port: 80
           scheme: h2c
   tls:
-    secretName: argocd-server-tls
-    domains:
-      - main: acd.rkth.io
     certResolver: letsencrypt
