@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: volume-configs
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rishikanthc/kdev.git
+    targetRevision: HEAD
+    path: volume-claims
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kuzka
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      prune: true
+      selfHeal: true
