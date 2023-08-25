@@ -1,5 +1,5 @@
 image:
-  tag: 4.0.2
+  tag: v4.0.2
 
 storageClass:
   name: nfs-crimson
