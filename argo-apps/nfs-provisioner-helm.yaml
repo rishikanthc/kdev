@@ -13,7 +13,7 @@ spec:
   sources:
     - repoURL: https://charts.bitnami.com/bitnami
       chart: nfs-subdir-external-provisioner
-      targetRevision: HEAD
+      targetRevision: 4.0.18
       helm:
         valueFiles:
           - $values/nfs-provisioner/values.yaml
