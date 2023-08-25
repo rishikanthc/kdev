@@ -11,16 +11,16 @@ spec:
   project: default
 
   source:
-  - repoURL: https://charts.bitnami.com/bitnami
-    chart: nfs-subdir-external-provisioner
-    targetRevision: 4.0.18
-    helm:
-      valueFiles:
-      - $values/nfs-provisioner/values.yaml
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: nfs-subdir-external-provisioner
+      targetRevision: 4.0.18
+      helm:
+        valueFiles:
+        - $values/nfs-provisioner/values.yaml
 
-  - repoURL: https://github.com/rishikanthc/kdev.git
-    targetRevision: HEAD
-    ref: values
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      ref: values
 
   destination:
     server: https://kubernetes.default.svc
