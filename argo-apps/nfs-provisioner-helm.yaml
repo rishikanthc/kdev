@@ -13,7 +13,7 @@ spec:
   sources:
     - repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
       chart: nfs-subdir-external-provisioner
-      targetRevision: 4.0.2
+      targetRevision: 4.0.18
       helm:
         valueFiles:
           - $values/nfs-provisioner/values.yaml
