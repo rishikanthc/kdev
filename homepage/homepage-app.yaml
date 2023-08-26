@@ -59,7 +59,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: homepage-service
+            name: homepage-svc
             port:
               number: 3000
   tls:
