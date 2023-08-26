@@ -1,0 +1,15 @@
+global:
+  storageClass: nfs-crimson
+
+image:
+  tag: 7.2.0
+
+existingSecret: redis-secret
+existingSecretPasswordKey: password
+
+persistence:
+  storageClass: nfs-crimsons
+  size: 1Gi
+
+persistentVolumeClaimRetentionPolicy:
+  enabled: true
