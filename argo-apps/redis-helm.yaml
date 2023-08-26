@@ -24,6 +24,7 @@ spec:
 
     - repoURL: https://github.com/rishikanthc/kdev.git
       targetRevision: HEAD
+      path: redis
       directory:
         exclude: '{values.yaml}'
         include: 'secret.yaml'
