@@ -24,7 +24,9 @@ spec:
 
     - repoURL: https://github.com/rishikanthc/kdev.git
       targetRevision: HEAD
-      path: redis/secret.yaml
+      directory:
+        exclude: '{values.yaml}'
+        include: 'secret.yaml'
 
   destination:
     server: https://kubernetes.default.svc
