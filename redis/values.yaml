@@ -2,7 +2,7 @@ global:
   storageClass: nfs-crimson
 
 image:
-  tag: 7.2.0
+  tag: 7.0.12
 
 existingSecret: redis-secret
 existingSecretPasswordKey: password
