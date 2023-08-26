@@ -2,14 +2,24 @@ global:
   storageClass: nfs-crimson
 
 image:
-  tag: 7.0.12
+  tag: 7.2.0
 
-existingSecret: redis-secret
-existingSecretPasswordKey: password
+auth:
+  existingSecret: redis-secret
+  existingSecretPasswordKey: password
 
-persistence:
-  storageClass: nfs-crimsons
-  size: 1Gi
+master:
+  persistence:
+    size: 1Gi
 
-persistentVolumeClaimRetentionPolicy:
+replica:
+  replicaCount: 2
+  persistence:
+    size: 1Gi
+
+sentinel:
   enabled: true
+  masterSet: redis-master
+
+  image:
+    tag: 7.2.0
