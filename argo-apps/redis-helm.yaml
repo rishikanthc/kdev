@@ -11,14 +11,14 @@ spec:
   project: default
 
   sources:
-    - repoURL: https://charts.bitnami.com/bitnami
+    - repoURL: oci://registry-1.docker.io/bitnamicharts/redis-cluster
       chart: redis
       targetRevision: 7.0.0
       helm:
         valueFiles:
           - $values/redis/values.yaml
 
-    - repoURL:
+    - repoURL: https://github.com/rishikanthc/kdev.git
       targetRevision: HEAD
       ref: values
 
