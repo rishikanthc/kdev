@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: homepage-dep
-  namespace: kuzka
+  namespace: appspace
   labels:
     app: homepage
 spec:
@@ -16,14 +16,83 @@ spec:
         app: homepage
     spec:
       volumes:
-        - name: config-volume
+        - name: homepage-config
           persistentVolumeClaim:
-            claimName: skadoosh-pvc
+            claimName: homepage-pvc
       containers:
       - name: homepage
         image: ghcr.io/benphelps/homepage:latest
         ports:
         - containerPort: 3000
         volumeMounts:
-          - name: config-volume
+          - name: homepage-config
             mountPath: "/app/config"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: homepage-svc
+  namespace: appspace
+spec:
+  selector:
+    app: homepage
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: homepage-ing
+  namespace: appspace
+spec:
+  rules:
+  - host: "rkth.io"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: homepage-service
+            port:
+              number: 3000
+  tls:
+    - hosts:
+      - rkth.io
+      secretName: homepage-cert
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homepage-pvc
+  namespace: appspace
+spec:
+  storageClassName: nfs-crimson
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 16Mi
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: homepage-cert
+  namespace: appspace
+spec:
+  secretName: homepage-cert
+  issuerRef:
+    name: acme-issuer
+    kind: ClusterIssuer
+  dnsNames:
+  - 'rkth.io'
