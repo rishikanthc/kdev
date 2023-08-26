@@ -12,7 +12,7 @@ spec:
 
   sources:
     - repoURL: https://charts.bitnami.com/bitnami
-      chart: redis
+      chart: redis-cluster
       targetRevision: 8.8.2
       helm:
         valueFiles:
