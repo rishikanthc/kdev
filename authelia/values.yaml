@@ -138,7 +138,7 @@ secret:
   session:
     key: session
   redis:
-    key: redis
+    key: REDIS_PASSWORD
   redisSentinel:
     key: redis-sentinel
   smtp:
