@@ -16,7 +16,7 @@ ingress:
     sticky: true
 
 pod:
-  kind: DaemonSet
+  kind: StatefulSet
   replicas: 1
 
   env:
@@ -60,8 +60,7 @@ configMap:
       password: 3F3frLFonmT43DndDGU_Z!WPmge8K4
     file:
       enabled: false
-    postgres:
-      enabled: false
+
 
   access_control:
     default_policy: deny
@@ -104,6 +103,8 @@ configMap:
       timeout: 5s
       tls:
         enabled: false
+    postgres:
+      enabled: false
 
   regulation:
     max_retries: 3
