@@ -12,8 +12,8 @@ spec:
 
   sources:
     - repoURL: https://charts.bitnami.com/bitnami
-      chart: postgresql-ha
-      targetRevision: 11.9.0
+      chart: postgresql
+      targetRevision: 12.10.0
       helm:
         valueFiles:
           - $values/postgre/values.yaml

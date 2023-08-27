@@ -2,12 +2,15 @@ global:
   storageClass: nfs-crimson
 
   postgresql:
-    username: authelia
-    existingSecret: postgre-secret
+    auth:
+      existingSecret: postgre-secret
 
-postgresql:
-  username: authelia
-  database: authelia
+      secretKeys:
+        adminPasswordKey: admin-password
+        userPasswordKey: user-password
+        replicationPasswordKey: replication-password
 
-persistence:
-  size: 1Gi
+
+primary:
+  persistence:
+    size: 1Gi
