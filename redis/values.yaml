@@ -1,9 +1,6 @@
 global:
   storageClass: nfs-crimson
 
-image:
-  tag: 7.2.0
-
 auth:
   existingSecret: redis-secret
   existingSecretPasswordKey: password
@@ -22,5 +19,4 @@ sentinel:
   masterSet: redis-master
 
   image:
-    tag: 7.2.0
     debug: true
