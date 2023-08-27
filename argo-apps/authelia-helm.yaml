@@ -27,7 +27,6 @@ spec:
       path: authelia
       directory:
         exclude: '{values.yaml}'
-        include: 'secret.yaml'
 
 
   destination:
