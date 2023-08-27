@@ -95,7 +95,7 @@ configMap:
     local:
       enabled: false
     mysql:
-      enabled: true
+      enabled: false
       host: mariadb.databases.svc.cluster.local
       port: 3306
       database: authelia
@@ -104,7 +104,11 @@ configMap:
       tls:
         enabled: false
     postgres:
-      enabled: false
+      enabled: true
+      host: postgre-postgresql.databases.svc.cluster.local
+      database: authelia
+      username: authelia
+
 
   regulation:
     max_retries: 3
