@@ -16,7 +16,7 @@ ingress:
     sticky: true
 
 pod:
-  kind: StatefulSet
+  kind: DaemonSet
   replicas: 1
 
   env:
@@ -82,11 +82,11 @@ configMap:
       maximum_active_connections: 8
       minimum_idle_connections: 1
       host: redis.databases.svc.cluster.local
-      port: 26379
+      port: 6379
 
-      high_availability:
-        enabled: true
-        sentinel_name: redis-master
+      # high_availability:
+      #   enabled: true
+      #   sentinel_name: redis-master
 
   storage:
     local:
