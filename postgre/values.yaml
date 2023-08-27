@@ -14,5 +14,7 @@ global:
 
 
 primary:
+  initdb:
+    user: authelia
   persistence:
     size: 1Gi
