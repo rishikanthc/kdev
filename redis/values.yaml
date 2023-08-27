@@ -23,3 +23,4 @@ sentinel:
 
   image:
     tag: 7.2.0
+    debug: true
