@@ -79,14 +79,13 @@ configMap:
 
     redis:
       enabled: true
-      enabledSecret: true
       maximum_active_connections: 8
       minimum_idle_connections: 1
       host: redis.databases.svc.cluster.local
+      port: 26379
 
       high_availability:
         enabled: true
-        enabledSecret: true
         sentinel_name: redis-master
 
   storage:
