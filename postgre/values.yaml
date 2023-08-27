@@ -3,6 +3,8 @@ global:
 
   postgresql:
     auth:
+      username: authelia
+      database: authelia
       existingSecret: postgre-secret
 
       secretKeys:
