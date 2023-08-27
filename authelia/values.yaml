@@ -82,18 +82,11 @@ configMap:
       maximum_active_connections: 8
       minimum_idle_connections: 1
       host: redis.databases.svc.cluster.local
+      port: 26379
 
-
-      high_availability:
-        enabled: true
-        sentinel_name: redis-master
-        nodes:
-          - host: redis-node-0
-            port: 26379
-          - host: redis-node-1
-            port: 26379
-          - host: redis-node-2
-            port: 26379
+      # high_availability:
+      #   enabled: true
+      #   sentinel_name: redis-master
 
   storage:
     local:
