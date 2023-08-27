@@ -87,6 +87,13 @@ configMap:
       high_availability:
         enabled: true
         sentinel_name: redis-master
+        nodes:
+          - host: redis-node-0
+            port: 26379
+          - host: redis-node-1
+            port: 26379
+          - host: redis-node-2
+            port: 26379
 
   storage:
     local:
