@@ -46,7 +46,7 @@ configMap:
     ldap:
       enabled: true
       implementation: custom
-      url: ldap://lldap.appspace.svc.cluster.local:3890
+      url: ldap://lldap-service.appspace.svc.cluster.local:3890
       base_dn: dc=rkth,dc=io
       username_attribute: uid
       additional_users_dn: ou=people
