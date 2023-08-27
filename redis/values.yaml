@@ -5,6 +5,7 @@ image:
   tag: 7.2.0
 
 auth:
+  sentinel: false
   existingSecret: redis-secret
   existingSecretPasswordKey: password
 
