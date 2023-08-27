@@ -1,0 +1,150 @@
+domain: rkth.io
+
+ingress:
+  enabled: true
+  certManager: true
+  subdomain: auth
+
+  tls:
+    enabled: true
+    secret: authelia-tls
+
+  traefikCRD:
+    enabled: true
+    entryPoints:
+      - websecure
+    sticky: true
+
+pod:
+  kind: StatefulSet
+  replicas: 1
+
+  env:
+    - name: TZ
+      value: "USA/Los_Angeles"
+
+  resources:
+    requests:
+      cpu: "0.25"
+      memory: 128Mi
+    limits:
+      cpu: "2.00"
+      memory: 1Gi
+
+configMap:
+  enabled: true
+
+  log:
+    level: debug
+
+  webauthn:
+    display_name: rkth.io
+
+  authentication_backend:
+    password_reset:
+      disable: false
+    ldap:
+      enabled: true
+      implementation: custom
+      url: ldap://lldap.appspace.svc.cluster.local:3890
+      base_dn: dc=rkth,dc=io
+      username_attribute: uid
+      additional_users_dn: ou=people
+      additional_groups_dn: ou=groups
+      users_filter: "(&({username_attribute}={input})(objectClass=person))"
+      groups_filter: "(member={dn})"
+      group_name_attribute: cn
+      mail_attribute: mail
+      display_name_attribute: displayName
+      user: uid=admin,ou=people,dc=rkth,dc=io
+      password: 3F3frLFonmT43DndDGU_Z!WPmge8K4
+    file:
+      enabled: false
+
+  access_control:
+    default_policy: deny
+    rules:
+    - domain: '*.rkth.io'
+      policy: one_factor
+      methods:
+        - GET
+        - POST
+        - PUT
+
+  session:
+    name: rkth
+    expiration: 12h
+    inactivity: 30m
+    remember_me_duration: 15d
+
+    redis:
+      enabled: true
+      enabledSecret: false
+      maximum_active_connections: 8
+      minimum_idle_connections: 1
+      host: redis.databases.svc.cluster.local
+
+      high_availability:
+        enabled: true
+        enabledSecret: false
+        sentinel_name: redis-master
+
+  storage:
+    local:
+      enabled: false
+    mysql:
+      enabled: true
+      host: mariadb.databases.svc.cluster.local
+      port: 3306
+      database: authelia
+      username: authelia
+      timeout: 5s
+      tls:
+        enabled: false
+
+  regulation:
+    max_retires: 3
+    find_time: 2m
+    ban_time: 30m
+
+  notifier:
+    disable_startup_check: false
+    smtp:
+      enabled: true
+      enabledSecret: false
+      host: smtp.gmail.com
+      port: 587
+      username: rcnoetic@gmail.com
+      sender: authelia@rkth.io
+      subject: "AUTHELIA {title}"
+
+  identity_providers:
+    oidc:
+      enabled: false
+
+
+certificates:
+  existingSecret: "authelia-tls"
+
+secret:
+  existingSecret: authelia-secret
+  jwt:
+    key: jwt
+  ldap:
+    key: ldap
+  storage:
+    key: storage
+  storageEncryptionKey:
+    key: storageEncryptionKey
+  session:
+    key: session
+  redis:
+    key: redis
+  redisSentinel:
+    key: redis-sentinel
+  smtp:
+    key: smtp
+  oidcPrivateKey:
+    key: oidcPrivateKey
+  oidcHMACSecret:
+    key: oidcHMACSecret

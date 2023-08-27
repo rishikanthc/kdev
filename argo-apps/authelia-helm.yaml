@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: authelia
+  namespace: argocd
+  finalizers:
+      # The default behaviour is foreground cascading deletion
+      - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://charts.authelia.com
+      chart: authelia
+      targetRevision: 0.8.57
+      helm:
+        valueFiles:
+          - $values/authelia/values.yaml
+
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      ref: values
+
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      path: authelia
+      directory:
+        exclude: '{values.yaml}'
+        include: 'secret.yaml'
+
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: appspace
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      prune: true
+      selfHeal: true
