@@ -60,6 +60,8 @@ configMap:
       password: 3F3frLFonmT43DndDGU_Z!WPmge8K4
     file:
       enabled: false
+    postgres:
+      enabled: false
 
   access_control:
     default_policy: deny
@@ -112,7 +114,7 @@ configMap:
     disable_startup_check: false
     smtp:
       enabled: true
-      enabledSecret: false
+      enabledSecret: true
       host: smtp.gmail.com
       port: 587
       username: rcnoetic@gmail.com
