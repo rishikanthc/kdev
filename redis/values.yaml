@@ -13,7 +13,7 @@ master:
     size: 1Gi
 
 replica:
-  replicaCount: 2
+  replicaCount: 3
   persistence:
     size: 1Gi
 
