@@ -139,6 +139,8 @@ secret:
     key: session
   redis:
     key: redis
+  redisSentinel:
+    key: redis-sentinel
   smtp:
     key: smtp
   oidcPrivateKey:
