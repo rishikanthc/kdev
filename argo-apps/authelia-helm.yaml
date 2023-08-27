@@ -21,15 +21,15 @@ spec:
     - repoURL: https://github.com/rishikanthc/kdev.git
       targetRevision: HEAD
       ref: values
-    #   directory:
-    #     exclude: '{secret.yaml,certificate.yaml}'
+      directory:
+        exclude: '{secret.yaml,certificate.yaml}'
+        include: 'secret.yaml'
 
-    # - repoURL: https://github.com/rishikanthc/kdev.git
-    #   targetRevision: HEAD
-    #   path: authelia
-    #   directory:
-    #     exclude: '{values.yaml}'
-
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      path: authelia
+      directory:
+        exclude: '{values.yaml}'
 
   destination:
     server: https://kubernetes.default.svc
