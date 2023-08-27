@@ -72,7 +72,7 @@ configMap:
         - PUT
 
   session:
-    name: rkth
+    name: rktho
     expiration: 12h
     inactivity: 30m
     remember_me_duration: 15d
