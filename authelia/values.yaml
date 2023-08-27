@@ -79,6 +79,7 @@ configMap:
 
     redis:
       enabled: true
+      enabledSecret: true
       maximum_active_connections: 8
       minimum_idle_connections: 1
       host: redis-master.databases.svc.cluster.local
