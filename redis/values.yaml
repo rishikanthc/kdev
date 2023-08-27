@@ -1,14 +1,12 @@
 global:
   storageClass: nfs-crimson
 
-# architecture: standalone
 
 auth:
   existingSecret: redis-secret
   existingSecretPasswordKey: password
 
 master:
-  # kind: Deployment
   persistence:
     size: 1Gi
 
@@ -19,6 +17,3 @@ replica:
 sentinel:
   enabled: true
   masterSet: redis-master
-
-  # image:
-  #   debug: true
