@@ -5,16 +5,24 @@ global:
     auth:
       username: authelia
       database: authelia
-      existingSecret: postgre-secret
+      existingSecret: postgres-secret
 
       secretKeys:
         adminPasswordKey: admin-password
         userPasswordKey: user-password
         replicationPasswordKey: replication-password
 
+auth:
+  username: authelia
+  database: authelia
+  enablePostgresUser: false
+  existingSecret: postgres-secret
+
+  secretKeys:
+    adminPasswordKey: admin-password
+    userPasswordKey: user-password
+    replicationPasswordKey: replication-password
 
 primary:
-  initdb:
-    user: authelia
   persistence:
     size: 1Gi
