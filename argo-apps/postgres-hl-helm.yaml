@@ -12,7 +12,7 @@ spec:
 
   sources:
     - repoURL: https://charts.bitnami.com/bitnami
-      chart: postgresql-hl
+      chart: postgresql-ha
       targetRevision: 11.9.0
       helm:
         valueFiles:
