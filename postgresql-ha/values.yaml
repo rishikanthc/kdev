@@ -8,6 +8,7 @@ global:
 
 postgresql:
   existingSecret: postgres-ha-secret
+  postgresPassword: test123
 
 persistence:
   enabled: true
