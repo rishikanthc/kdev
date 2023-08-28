@@ -3,7 +3,6 @@ global:
 
   postgresql:
     auth:
-      username: authelia
       database: authelia
       existingSecret: postgres-secret
 
@@ -13,9 +12,7 @@ global:
         replicationPasswordKey: replication-password
 
 auth:
-  username: authelia
   database: authelia
-  enablePostgresUser: false
   existingSecret: postgres-secret
 
   secretKeys:
