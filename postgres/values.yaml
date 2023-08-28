@@ -12,6 +12,7 @@ global:
         replicationPasswordKey: replication-password
 
 auth:
+  username: authelia
   database: authelia
   existingSecret: postgres-secret
 
