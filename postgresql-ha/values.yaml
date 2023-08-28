@@ -1,0 +1,14 @@
+global:
+  storageClass: nfs-crimson
+
+  postgresql:
+    username: authelia
+    database: authelia
+    existingSecret: postgres-ha-secret
+
+postgresql:
+  existingSecret: postgres-ha-secret
+
+persistence:
+  enabled: true
+  size: 1Gi
