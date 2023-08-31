@@ -1,0 +1,11 @@
+global:
+  storageClass: nfs-crimson
+
+existingSecret: mariadb-gl-secret
+
+db:
+  user: authelia
+  name: authelia
+
+persistence:
+  size: 1Gi
