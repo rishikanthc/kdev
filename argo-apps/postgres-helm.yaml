@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  namespace: argocd
+  finalizers:
+      # The default behaviour is foreground cascading deletion
+      - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: postgresql
+      targetRevision: 12.10.0
+      helm:
+        valueFiles:
+          - $values/postgres/values.yaml
+
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      path: postgres
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: databases
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      prune: true
+      selfHeal: true
