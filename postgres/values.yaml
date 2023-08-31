@@ -28,5 +28,12 @@ auth:
   #   replicationPasswordKey: replication-password
 
 primary:
+  extraEnvVars:
+    - name: 'POSTGRESQL_USERNAME'
+      value: 'authelia'
+    - name: 'POSTGRESQL_PASSWORD'
+      value: 'authelia'
+    - name: 'POSTGRESQL_DATABASE'
+      value: 'authelia'
   persistence:
     size: 1Gi
