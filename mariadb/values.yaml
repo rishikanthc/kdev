@@ -1,0 +1,18 @@
+global:
+  storageClass: nfs-crimson
+
+image:
+  tag: 11.0.3
+
+auth:
+  database: authelia
+  username: authelia
+  existingSecret: mariadb-secret
+
+primary:
+  persistence:
+    size: 1Gi
+
+secondary:
+  persistence:
+    size: 1Gi
