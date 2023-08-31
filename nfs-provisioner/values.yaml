@@ -4,11 +4,13 @@ image:
 storageClass:
   name: nfs-crimson
   defaultClass: true
+  onDelete: delete
 
 nfs:
   server: 207.246.100.141
   path: /mnt/blockstorage/skidobo
   volumeName: nfs-crimson
+  reclaimPolicy: Delete
 
 resources:
   requests:
