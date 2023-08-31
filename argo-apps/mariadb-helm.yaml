@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgres
+  name: mariadb
   namespace: argocd
   finalizers:
       # The default behaviour is foreground cascading deletion
@@ -12,15 +12,15 @@ spec:
 
   sources:
     - repoURL: https://charts.bitnami.com/bitnami
-      chart: postgresql
-      targetRevision: 12.10.0
+      chart: mariadb
+      targetRevision: 13.1.1
       helm:
         valueFiles:
-          - $values/postgres/values.yaml
+          - $values/mariadb/values.yaml
 
     - repoURL: https://github.com/rishikanthc/kdev.git
       targetRevision: HEAD
-      path: postgres
+      path: mariadb
       ref: values
 
   destination:
