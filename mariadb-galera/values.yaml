@@ -9,7 +9,7 @@ db:
 
 galera:
   bootstrap:
-    forceSafeToBoostrap: true
+    bootstrapFromNode: 0
 
 persistence:
   size: 1Gi
