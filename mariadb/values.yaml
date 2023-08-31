@@ -1,8 +1,8 @@
 global:
   storageClass: nfs-crimson
 
-image:
-  tag: 11.0.3
+# image:
+#   tag: 11.0.3
 
 auth:
   database: authelia
