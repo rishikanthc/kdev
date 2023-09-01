@@ -12,18 +12,18 @@ global:
         userPasswordKey: user-password
         replicationPasswordKey: replication-password
 
-# auth:
-#   postgresPassword: authelia
-#   username: authelia
-#   password: authelia
-#   database: authelia
-#   replicationPassword: authelia
-  # existingSecret: postgres-secret
+auth:
+  # postgresPassword: authelia
+  username: authelia
+  # password: authelia
+  database: authelia
+  # replicationPassword: authelia
+  existingSecret: postgres-secret
 
-  # secretKeys:
-  #   adminPasswordKey: admin-password
-  #   userPasswordKey: user-password
-  #   replicationPasswordKey: replication-password
+  secretKeys:
+    adminPasswordKey: admin-password
+    userPasswordKey: user-password
+    replicationPasswordKey: replication-password
 
 primary:
   livenessProbe:
