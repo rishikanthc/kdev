@@ -3,7 +3,7 @@ image:
 
 storageClass:
   name: nfs-crimson
-  defaultClass: true
+  defaultClass: false
   onDelete: delete
 
 nfs:

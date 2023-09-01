@@ -9,7 +9,7 @@ metadata:
 
 
 spec:
-  project: default
+  project: homelab
 
   source:
     repoURL: https://github.com/rishikanthc/kdev.git
