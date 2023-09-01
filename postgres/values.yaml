@@ -1,0 +1,35 @@
+global:
+  storageClass: longhorn
+
+  postgresql:
+    auth:
+      postgresPassword: authelia
+      username: authelia
+      password: authelia
+      database: authelia
+      # existingSecret: postgres-secret
+
+      # secretKeys:
+      #   adminPasswordKey: admin-password
+      #   userPasswordKey: user-password
+      #   replicationPasswordKey: replication-password
+
+auth:
+  postgresPassword: authelia
+  username: authelia
+  password: authelia
+  database: authelia
+  replicationPassword: authelia
+  # existingSecret: postgres-secret
+
+  # secretKeys:
+  #   adminPasswordKey: admin-password
+  #   userPasswordKey: user-password
+  #   replicationPasswordKey: replication-password
+
+primary:
+  livenessProbe:
+    failureThreshold: 20
+  persistence:
+    storageClass: longhorn
+    size: 1Gi
