@@ -105,7 +105,7 @@ configMap:
         enabled: false
     postgres:
       enabled: true
-      host: postgre-postgresql.databases.svc.cluster.local
+      host: postgresql-ha-postgresql.databases.svc.cluster.local
       database: authelia
       username: authelia
 
@@ -139,9 +139,9 @@ secret:
   jwt:
     key: jwt
   ldap:
-    key: ldap
+    key: ldap-password
   storage:
-    key: storage
+    key: storage-password
   storageEncryptionKey:
     key: storageEncryptionKey
   session:
