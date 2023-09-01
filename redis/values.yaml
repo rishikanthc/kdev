@@ -1,0 +1,19 @@
+global:
+  storageClass: longhorn
+
+
+auth:
+  existingSecret: redis-secret
+  existingSecretPasswordKey: password
+
+master:
+  persistence:
+    size: 1Gi
+
+replica:
+  persistence:
+    size: 1Gi
+
+sentinel:
+  enabled: true
+  masterSet: redis-master
