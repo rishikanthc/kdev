@@ -1,5 +1,5 @@
 global:
-  storageClass: nfs-crimson
+  storageClass: longhorn
 
   postgresql:
     username: authelia
