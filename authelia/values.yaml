@@ -105,7 +105,7 @@ configMap:
         enabled: false
     postgres:
       enabled: true
-      host: postgresql-ha-postgresql.databases.svc.cluster.local
+      host: postgres-postgresql.databases.svc.cluster.local
       database: authelia
       username: authelia
 
