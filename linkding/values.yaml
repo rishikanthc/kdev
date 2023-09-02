@@ -1,0 +1,27 @@
+certificate:
+  dnsNames:
+    - lnk.rkth.io
+  issuerRef:
+    kind: ClusterIssuer
+    name: acme-issuer
+  secretName: linkding-tls
+
+env:
+  - name: TZ
+    value: "USA/Los_Angeles"
+
+image:
+  tag: v1.21.0
+
+ingressRoute:
+  create: true
+  entryPoints:
+    - websecure
+
+  rule: "Host(`lnk.rkth.io`)"
+  tlsSecretName: linkding-tls
+
+persistentVolumeClaim:
+  create: true
+  storageClassName: longhorn
+  size: 1Gi

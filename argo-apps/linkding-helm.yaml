@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: linkding
+  namespace: argocd
+  finalizers:
+      # The default behaviour is foreground cascading deletion
+      - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: homelab
+
+  sources:
+    - repoURL: https://charts.pascaliske.dev
+      chart: linkding
+      targetRevision: 1.0.6
+      helm:
+        valueFiles:
+          - $values/linkding/values.yaml
+
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      path: linkding
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: appspace
