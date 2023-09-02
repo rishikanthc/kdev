@@ -11,7 +11,7 @@ env:
     value: "USA/Los_Angeles"
 
 image:
-  tag: v1.21.0
+  tag: 1.21.0
 
 ingressRoute:
   create: true
