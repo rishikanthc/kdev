@@ -2,7 +2,7 @@ env:
   - name: TZ
     value: "USA/Los_Angeles"
   - name: LD_ENABLE_AUTH_PROXY
-    value: "true"
+    value: "True"
   - name: LD_AUTH_PROXY_USERNAME_HEADER
     value: "HTTP_REMOTE_USER"
   - name: LD_AUTH_PROXY_LOGOUT_URL
