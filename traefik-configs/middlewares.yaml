@@ -67,7 +67,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: secured
+  name: secured-auth
   namespace: appspace
 
 spec:
@@ -76,3 +76,17 @@ spec:
       - name: "https-redirect"
       - name: "secure-headers"
       - name: "forwardauth"
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: secured
+  namespace: appspace
+
+spec:
+  chain:
+    middlewares:
+      - name: "https-redirect"
+      - name: "secure-headers"

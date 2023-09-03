@@ -16,7 +16,7 @@ ingressRoute:
   entryPoints:
     - websecure
   middlewares:
-    - name: secured
+    - name: secured-auth
       namespace: appspace
 
   rule: "Host(`lnk.rkth.io`)"
