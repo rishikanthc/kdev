@@ -73,6 +73,6 @@ metadata:
 spec:
   chain:
     middlewares:
-      - "secure-headers"
-      - "https-redirect"
-      - "forwardauth"
+      - name: "secure-headers"
+      - name: "https-redirect"
+      - name: "forwardauth"
