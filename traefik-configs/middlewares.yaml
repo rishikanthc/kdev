@@ -7,6 +7,7 @@ metadata:
 spec:
   forwardAuth:
     address: "http://authelia.default.svc.cluster.local/api/verify?rd=https://auth.rkth.io"
+    trustForwardHeader: true
     authResponseHeaders:
       - Remote-User
       - Remote-Name
@@ -71,5 +72,5 @@ spec:
   chain:
     middlewares:
       - name: "https-redirect"
-      - name: "secure-headers"
-      - name: "forwardauth"
+      # - name: "secure-headers"
+      # - name: "forwardauth"
