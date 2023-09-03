@@ -30,6 +30,8 @@ spec:
       - PUT
       # - POST
       # - DELETE
+    accessControlAllowHeaders:
+      - https://lnk.rkth.io
     accessControlAllowOriginList:
       - https://lnk.rkth.io
     accessControlMaxAge: 100
@@ -72,5 +74,5 @@ spec:
   chain:
     middlewares:
       - name: "https-redirect"
-      # - name: "secure-headers"
+      - name: "secure-headers"
       # - name: "forwardauth"
