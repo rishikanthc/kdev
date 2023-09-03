@@ -15,6 +15,9 @@ ingressRoute:
   create: true
   entryPoints:
     - websecure
+  middlewares:
+    - name: secured
+      namespace: appspace
 
   rule: "Host(`lnk.rkth.io`)"
   tlsSecretName: linkding-tls
