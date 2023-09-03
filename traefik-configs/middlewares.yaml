@@ -6,7 +6,8 @@ metadata:
 
 spec:
   forwardAuth:
-    address: http://authelia.default.svc.cluster.local/api/verify?rd=https%3A%2F%2Fauth.rkth.io%2F
+    address: "http://authelia.appspace.svc.cluster.local/api/verify?rd=https://auth.rkth.io/"
+    trustForwardHeader: true
     authResponseHeaders:
       - Remote-User
       - Remote-Name
