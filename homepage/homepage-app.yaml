@@ -45,27 +45,24 @@ spec:
 
 ---
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
   name: homepage-ing
   namespace: appspace
 spec:
-  rules:
-  - host: "rkth.io"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: homepage-svc
-            port:
-              number: 3000
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`rkth.io`)
+      services:
+        - kind: Service
+          name: homepage-svc
+          port: 3000
+
   tls:
-    - hosts:
-      - rkth.io
-      secretName: homepage-cert
+    secretName: homepage-cert
 
 ---
 
