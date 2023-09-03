@@ -1,0 +1,78 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: forwardauth
+  namespace: appspace
+
+spec:
+  forwardAuth:
+    address: "http://authelia.default.svc.cluster.local/api/verify?rd=https://auth.rkth.io"
+    authResponseHeaders:
+      - Remote-User
+      - Remote-Name
+      - Remote-Email
+      - Remote-Groups
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: secure-headers
+  namespace: appspace
+
+spec:
+  headers:
+    accessControlAllowMethods:
+      - GET
+      - OPTIONS
+      - PUT
+      # - POST
+      # - DELETE
+    accessControlAllowOriginList:
+      - https://lnk.rkth.io
+    accessControlMaxAge: 100
+    addVaryHeader: true
+    hostProxyHeaders:
+      - X-Forwarded-Host
+    browserXssFilter: true
+    contentTypeNosniff: true
+    forceSTSHeader: true
+    frameDeny: true
+    sslRedirect: true
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 31536000
+    sslProxyHeaders:
+      X-Forwarded-Proto: "https"
+    referrerPolicy: "same-origin"
+    customResponseHeaders:
+      X-Robots-Tag: "none,noarchive,nosnippet,notranslate,noimageindex"
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: https-redirect
+  namespace: appspace
+
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: secured
+  namespace: appspace
+
+spec:
+  chain:
+    middlewares:
+      - secure-headers
+      - https-redirect
+      - forwardauth

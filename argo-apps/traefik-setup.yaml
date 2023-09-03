@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: traefik-config
+  name: traefik-setup
   namespace: argocd
   finalizers:
       # The default behaviour is foreground cascading deletion
@@ -13,11 +13,11 @@ spec:
   source:
     repoURL: https://github.com/rishikanthc/kdev.git
     targetRevision: HEAD
-    path: traefik-configs
+    path: traefik-setup
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: appspace
+    namespace: kube-system
 
   syncPolicy:
     automated:
