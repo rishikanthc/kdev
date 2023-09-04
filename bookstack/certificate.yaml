@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: bookstack-tls
+  namespace: appspace
+spec:
+  secretName: bookstack-tls
+  issuerRef:
+    name: acme-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - 'wiki.rkth.io'
