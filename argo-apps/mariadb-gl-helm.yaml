@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb-galera
+  namespace: argocd
+  finalizers:
+      # The default behaviour is foreground cascading deletion
+      - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: mariadb-galera
+      targetRevision: 9.1.1
+      helm:
+        valueFiles:
+          - $values/mariadb-galera/values.yaml
+
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      path: mariadb-galera
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: databases
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      prune: true
+      selfHeal: true

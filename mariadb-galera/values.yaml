@@ -1,0 +1,16 @@
+global:
+  storageClass: longhorn
+
+existingSecret: mariadb-gl-secret
+
+db:
+  user: authelia
+  name: authelia
+
+galera:
+  bootstrap:
+    bootstrapFromNode: 0
+
+persistence:
+  storageClass: longhorn
+  size: 1Gi
