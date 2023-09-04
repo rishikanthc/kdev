@@ -1,4 +1,5 @@
 env:
+  APP_URL: https://wiki.rkth.io
   DB_HOST: bookstack-db.appspace.svc.cluster.local
   DB_PASSWORD:
     secretKeyRef:
