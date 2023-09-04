@@ -13,3 +13,6 @@ ingress:
     enabled: true
     hosts:
       - host: flux.rkth.io
+        paths:
+          - path: /
+            pathType: Prefix
