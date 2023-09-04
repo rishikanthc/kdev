@@ -1,0 +1,5 @@
+env:
+  BASE_URL:
+    secretKeyRef:
+      name: miniflux-secret
+      key: baseUrl

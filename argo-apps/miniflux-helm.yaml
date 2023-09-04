@@ -16,13 +16,13 @@ spec:
       path: miniflux
       helm:
         releaseName: miniflux
-        # valueFiles:
-        #   - $values/miniflux/values.yaml
+        valueFiles:
+          - $values/miniflux/values.yaml
 
-    # - repoURL: https://github.com/rishikanthc/kdev.git
-    #   targetRevision: HEAD
-    #   path: miniflux
-    #   ref: values
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      path: miniflux
+      ref: values
 
   destination:
     server: https://kubernetes.default.svc
