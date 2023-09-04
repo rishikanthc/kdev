@@ -12,7 +12,7 @@ spec:
 
   sources:
     - repoURL: https://github.com/rishikanthc/helm-charts.git
-      targetRevision: 0.1.0
+      targetRevision: HEAD
       path: miniflux
       helm:
         releaseName: miniflux
