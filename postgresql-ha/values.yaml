@@ -1,0 +1,11 @@
+global:
+  storageClass: longhorn
+
+  postgresql:
+    username: authelia
+    database: authelia
+    existingSecret: postgres-ha-secret
+
+persistence:
+  enabled: true
+  size: 1Gi
