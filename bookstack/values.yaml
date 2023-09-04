@@ -1,0 +1,22 @@
+env:
+  DB_HOST: bookstack-db.appspace.svc.cluster.local
+  DB_PASSWORD:
+    secretKeyRef:
+      name: bookstack-db-secret
+      key: password
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: wiki.rkth.io
+        paths:
+          - path: /
+            pathType: Prefix
+
+    tls:
+      - secretName: bookstack-tls
+
+mariadb:
+  global:
+    storageClass: longhorn

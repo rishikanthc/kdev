@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookstack
+  namespace: argocd
+  finalizers:
+      # The default behaviour is foreground cascading deletion
+      - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: homelab
+
+  sources:
+    - repoURL: https://github.com/rishikanthc/helm-charts.git
+      targetRevision: HEAD
+      path: bookstack
+      helm:
+        releaseName: bookstack
+        valueFiles:
+          - $values/bookstack/values.yaml
+
+    - repoURL: https://github.com/rishikanthc/kdev.git
+      targetRevision: HEAD
+      path: bookstack
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: appspace
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      prune: true
+      selfHeal: true
