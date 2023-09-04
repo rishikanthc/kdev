@@ -3,3 +3,7 @@ env:
     secretKeyRef:
       name: miniflux-secret
       key: baseUrl
+  DATABASE_URL:
+    secretKeyRef:
+      name: miniflux-secret
+      key: dbUrl
