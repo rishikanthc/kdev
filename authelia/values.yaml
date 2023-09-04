@@ -17,7 +17,7 @@ ingress:
 
 pod:
   kind: StatefulSet
-  replicas: 1
+  replicas: 2
 
   env:
     - name: TZ
