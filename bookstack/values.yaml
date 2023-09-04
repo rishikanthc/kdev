@@ -3,7 +3,7 @@ env:
   DB_PASSWORD:
     secretKeyRef:
       name: bookstack-db-secret
-      key: password
+      key: mariadb-password
 
 ingress:
   main:
