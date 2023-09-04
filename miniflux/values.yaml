@@ -7,3 +7,9 @@ env:
     secretKeyRef:
       name: miniflux-secret
       key: dbUrl
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: flux.rkth.io
