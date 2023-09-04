@@ -1,8 +1,5 @@
 env:
-  BASE_URL:
-    secretKeyRef:
-      name: miniflux-secret
-      key: baseUrl
+  BASE_URL: https://flux.rkth.io
   DATABASE_URL:
     secretKeyRef:
       name: miniflux-secret
@@ -16,3 +13,6 @@ ingress:
         paths:
           - path: /
             pathType: Prefix
+
+postgresql:
+  enabled: true
